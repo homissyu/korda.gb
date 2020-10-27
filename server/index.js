@@ -19,13 +19,13 @@ let ytRet = {};
 async function getYt(){
   const ytCnt = 4;
   const ytSql = "SELECT "+
-            "videoId, ID, channelId, title, description, channelTitle, playlistId, `position`, videoPublishedAt, thumnailMediumUrl, thumnailMaxResUrl, REG_DATETIME "+
-          "FROM "+ 
-            "dbkorda.YOUTUBE_LIST "+
-          "WHERE "+
-            "PLAYLISTID = 'PLdCdURyEGavxp8mQw-0jJNfC0bkBNKUI2' "+
-          "ORDER BY "+ 
-            "dbkorda.YOUTUBE_LIST.`position` LIMIT "+ytCnt;
+                  "videoId, ID, channelId, title, description, channelTitle, playlistId, `position`, videoPublishedAt, thumnailMediumUrl, thumnailMaxResUrl, REG_DATETIME "+
+                "FROM "+ 
+                  "dbkorda.YOUTUBE_LIST "+
+                "WHERE "+
+                  "PLAYLISTID = 'PLdCdURyEGavxp8mQw-0jJNfC0bkBNKUI2' "+
+                "ORDER BY "+ 
+                  "dbkorda.YOUTUBE_LIST.`position` LIMIT "+ytCnt;
   getConnection((conn) => {
     conn.query(
       ytSql, function(err, rows) {
