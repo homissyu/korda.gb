@@ -1,0 +1,81 @@
+/* ----------------------------------------------------------------
+	Fonts
+
+	Replace your Fonts as necessary
+-----------------------------------------------------------------*/
+
+
+body,
+small,
+.sub-menu-container .menu-item > .menu-link,
+.wp-caption,
+.fbox-center.fbox-italic p,
+.skills li .progress-percent .counter,
+.nav-tree ul ul a,
+.font-body { font-family: 'nanum', sans-serif !important; }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#logo a,
+.menu-link,
+.mega-menu-style-2 .mega-menu-title > .menu-link,
+.top-search-form input,
+.entry-link,
+.entry.entry-date-section span,
+.button.button-desc,
+.fbox-content h3,
+.tab-nav-lg li a,
+.counter,
+label,
+.widget-filter-links li a,
+.nav-tree li a,
+.wedding-head,
+.font-primary { font-family: 'nanumB', sans-serif !important; }
+
+
+.entry-link span,
+.entry blockquote p,
+.more-link,
+.comment-content .comment-author span,
+.comment-content .comment-author span a,
+.button.button-desc span,
+.testi-content p,
+.team-title span,
+.before-heading,
+.wedding-head .first-name span,
+.wedding-head .last-name span,
+.font-secondary { font-family: 'nanum', sans-serif !important; }
+
+/* nanum-gothic-regular - korean */
+@font-face {
+	font-family: 'nanum';
+	font-style: normal;
+	font-weight: 400;
+	src: local('NanumGothic'),
+		 url('../fonts/nanum-gothic-v17-korean-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		 url('../fonts/nanum-gothic-v17-korean-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* nanum-gothic-700 - korean */
+  @font-face {
+	font-family: 'nanumB';
+	font-style: normal;
+	font-weight: 700;
+	src: local('NanumGothic Bold'), local('NanumGothic-Bold'),
+		 url('../fonts/nanum-gothic-v17-korean-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		 url('../fonts/nanum-gothic-v17-korean-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* nanum-gothic-800 - korean */
+  @font-face {
+	font-family: 'nanumE';
+	font-style: normal;
+	font-weight: 800;
+	src: local('NanumGothic ExtraBold'), local('NanumGothic-ExtraBold'),
+		 url('../fonts/nanum-gothic-v17-korean-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+		 url('../fonts/nanum-gothic-v17-korean-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+

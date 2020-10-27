@@ -1,0 +1,41 @@
+/* ----------------------------------------------------------------
+	공통
+-----------------------------------------------------------------*/
+ /*명함 다운로드*/
+ .app_down {background-size:100% auto;margin:0;padding:0;}/* background:#E1E2E8 url(./images/m_bg_con@2x.png)  center 140px no-repeat; */
+ .app_down .wrap_con {padding:40px 0 40px 0;}
+ .app_down .header_top {text-align: left;background: #fff;padding:10px 0 10px 5%;border:1px solid rgb(222, 223, 228);}
+ .app_down .header_top img  {height:60px;}
+ .down_area {text-align:center;width:90%;margin:0 auto;}
+ .down_area .tit {color:#333;font-size:24px;font-weight:bold;}
+ .down_area p.tit {margin-top:0px}
+ .down_area a {display: block;width:100%;text-align:center;background-color: #333;color: #f2f2f2;padding: 12px 0;  border-radius:30px;text-decoration: none; font-size: 17px; -webkit-box-sizing: border-box;box-sizing: border-box;  }
+ .down_area a.col_2.left {margin-right:0%;margin-bottom:12px;}
+ .down_area a:hover { background-color: #454d61;color: #f2f2f2; }
+ .down_area a img {height:33px;}
+ .down_area.box01 .logo img, .down_area.box02 .logo img {height:32px;margin-bottom:0px;}
+ .down_area.box01 {}
+ .down_area.box01:after {content:'';clear:both;display:block}
+ .down_area.box01 a {background-color: #5f8af7;color: #fff;}
+ .down_area.box01 a:hover { background-color: #333;color: #f2f2f2; }
+ .down_area.box02 {margin-top:35px}
+ .down_area.box02:after {content:'';clear:both;display:block}
+ .down_area.box02 a {background-color: #fb626c;color: #fff;}
+ .down_area.box02 a:hover { background-color: #333;color: #fff; }
+
+ .down_area.box03 {margin-top:30px;}
+ .down_area.box03:after {content:'';clear:both;display:block}
+ .down_area.box03 a {padding:0 15px;line-height:55px;font-weight: bold;}
+ .down_area.box03 a img {vertical-align:middle;}
+
+ .down_area a.col_1 {width:100%;background: none;color: #4A4C4E;border:none;}
+
+ .down_area a {display: block;width:100%;text-align:center;background-color: #333;color: #f2f2f2;padding: 12px 0;  border-radius:30px;text-decoration: none; font-size: 17px; -webkit-box-sizing: border-box;box-sizing: border-box;  }
+
+ .app_down #footer.dark {margin-top:0 !important;color: rgba(255,255,255,0.75);background-color: #565e6d;border-top-color: #333841;}
+ .app_down #copyrights {width:90%;margin:0 auto;padding: 15px 0 75px 0;background-color: rgba(88, 88, 104, 0);font-size: 0.7rem;line-height: 1.8;}
+ .app_down #copyrights a {color:#f1f1f1;}
+ .app_down #copyrights h5 {font-size: 1em;line-height: 1.2;}
+ .app_down img.w100{width:100%;}
+
+ #logo img {height:60px  !important}

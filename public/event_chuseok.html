@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+    <!--[if lte IE 8]>
+    <script src="https://koreada.kr:443/home/js/html5.js"></script>
+    <![endif]-->
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <title>금방금방 추석 이벤트</title>
+    <script src="./js/jquery-3.4.1.min.js"></script> 
+    <link rel="stylesheet" href="css/event_new.css">
+    <script>
+        //하단 모바일 앱다운 버튼
+        // When the user scrolls down 20px from the top of the document, slide down the navbar
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("navbar").style.bottom = "0";
+            document.getElementById("navbar").style.left = "0";
+            document.getElementById("navbar").style.right = "0";
+            document.getElementById("gotoTop").style.display = "block";
+        } else {
+            document.getElementById("navbar").style.bottom = "30px";
+            document.getElementById("navbar").style.left = "30px";
+            document.getElementById("navbar").style.right = "30px";
+            document.getElementById("gotoTop").style.display = "none";
+        }
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("right_wraps").style.opacity = "0.9";
+        } else {
+            document.getElementById("right_wraps").style.opacity = "1";
+        }
+        }
+        </script>
+
+
+
+</head>
+  <body class="app_down chuseock">
+      <!--하단 앱다운로드 버튼-->
+        <div class="m_view">
+            <div id="navbar">
+                <a href="market://details?id=com.gogold.korda"><img src="images/img_store_1_w2_mobile.png" alt="금방금방 플레이 스토어"></a>
+                <a href="itms-apps://itunes.apple.com/kr/app/apple-store/id1521643653"><img src="images/img_store_2_w2_mobile.png" alt="금방금방 앱스토어"></a>
+            </div>
+        </div>
+        <!--//gnb only for Mobile-->
+
+    <div class="main">
+        <img src="./images/img_01.jpg" class="w100" alt="센골드 추석 이벤트 이미지1" >
+        <img src="./images/img_02.jpg" class="w100" alt="센골드 추석 이벤트 이미지2" >
+        <img src="./images/img_03.jpg" class="w100" alt="센골드 추석 이벤트 이미지2" >
+
+               <!-- S:wrap_con -->
+               <div class="wrap_con">
+                <div class="down_area box01">
+                    
+                    <p class="tit">금방금방 앱 다운로드</p>
+                    <a href="market://details?id=com.gogold.korda" class="col_2 left"><img src="./images/img_store_1_w2_mobile.png" alt="금방금방 플레이 스토어"></a>
+                    <a href="itms-apps://itunes.apple.com/kr/app/apple-store/id1521643653" class="col_2"><img src="./images/img_store_2_w2_mobile.png" alt="금방금방 앱스토어"></a>
+                </div>
+                <div class="down_area box03">
+                    <a href="https://금방금방.kr" target="_blank" class="col_1">홈페이지 바로가기 ></a>
+                </div>
+            </div>
+            <!-- E:wrap_con -->
+    </div>
+        
+    
+    
+    
+    
+    
+    
+ 
+
+
+        <footer id="footer" class="dark">
+            <!-- Copyrights
+            ============================================= -->
+            <div id="copyrights">
+                <div class="container">
+                    <div >
+                        <div >
+                            <h5>㈜한국금거래소디지털에셋</h5>
+                            대표이사 : 김종인  | 서비스 문의	: 02-1670-8456,  <a href="mailto:help@korda.im" >help@korda.im</a>  | 사업자등록번호 : 764-81-01460 | 통신판매업신고 : 제2019-서울중구-0900호<br>
+                            (03139) 서울특별시 종로구 돈화문로5가길 1 (돈의동, 피카디리플러스) 7-2호
+                            <br>
+                            <span class="coR">Copyrights © 2020 All Rights Reserved by KoreaDA.</span><br>			
+                        </div>
+                    </div>
+                </div>
+            </div><!-- #copyrights end -->
+        </footer>
+
+  </body>
+</html>
+
+
+
+
+

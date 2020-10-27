@@ -1,0 +1,70 @@
+/*명함 다운로드*/
+.app_down {margin:0;padding:0;}
+.app_down .wrap_con {background: #ef4d1e;padding:20px 0 20px 0;}
+.app_down .header_top {text-align: left;background: #fff;padding:15px 0 15px 5%;border:1px solid rgb(222, 223, 228);}
+.app_down .header_top img  {height:30px;}
+.down_area {text-align:center;width:90%;margin:0 auto;align}
+.down_area .tit {color:#fff;font-size:18px;font-weight:normal;}
+.down_area p.tit {margin-top:0px; margin-bottom:10px}
+.down_area a {float:center;width:49%;text-align:center;background-color: #333;color: #f2f2f2;padding: 0px 0;  border-radius:30px;text-decoration: none; font-size: 17px; -webkit-box-sizing: border-box;box-sizing: border-box;  }
+.down_area a.col_2.left {margin-right:2%;margin-bottom:3px;}
+.down_area a:hover { background-color: #454d61;color: #f2f2f2; }      
+.down_area a img {height:25px;}
+
+.down_area.box01 .logo img, .down_area.box02 .logo img {height:32px;margin-bottom:0px;}
+.down_area.box01 {}
+.down_area.box01:after {content:'';clear:both;display:block}
+.down_area.box01 a {background-color: #ef4d1e; border:1px solid #fff; color: #fff;transition: 0.3s;
+}
+.down_area.box01 a:hover { background-color: #a73211;color: #f2f2f2; border-color: #a73211;}
+.down_area.box02 {margin-top:35px}
+.down_area.box02:after {content:'';clear:both;display:block}
+.down_area.box02 a {background-color: #fb626c;color: #fff;}
+.down_area.box02 a:hover { background-color: #333;color: #fff; } 
+
+.down_area.box03 {margin-top:8px;}
+.down_area.box03:after {content:'';clear:both;display:block}
+.down_area.box03 a {padding:0 15px;line-height:19px;font-weight: normal;}
+.down_area.box03 a img {vertical-align:middle;}
+
+.down_area a.col_1 {width:100%; padding-right:4%;background: none;color: #fff;border:none; text-align: right;}
+
+.down_area a {display: inline-block;width:45%;text-align:center;background-color: #333;color: #f2f2f2;padding: 12px 0;  border-radius:30px;text-decoration: none; font-size: 14px; -webkit-box-sizing: border-box;box-sizing: border-box;  }
+
+.app_down #footer.dark {color: rgba(255,255,255,0.75);background-color: #565e6d;border-top-color: #333841;}
+.app_down #copyrights {width:90%;margin:0 auto;padding: 15px 0 25px 0;background-color: rgba(88, 88, 104, 0);font-size: 0.7rem;line-height: 1.8;}
+.app_down #copyrights a {color:#f1f1f1;}
+.app_down #copyrights h5 {font-size: 1em;line-height: 1.2;}
+.main{width:100%;}
+.main img.w100{width:100%;}
+.down_none{display:none;}
+
+
+
+ /*하단바 앱다운로드 버튼*/
+ #navbar {background-color: #fb626c; position: fixed;bottom: 30px; left:30px;  right:30px;z-index:99; display: block;transition: 0.35s;width:auto;}/* #4877ef*/
+ #navbar a {float: left;display: block;width:50%;text-align:center;color: #f2f2f2;text-align: center;padding: 15px;  text-decoration: none; font-size: 17px; -webkit-box-sizing: border-box;box-sizing: border-box;  }
+ #navbar a:hover { background-color: #333;color: #f2f2f2; }      
+ #navbar a img {height:30px;}
+ .app_down #footer.dark {padding-bottom:70px; }
+ .con_logo {display:none}
+ .h50 {height:50px;}
+ .h100 {height:100px;}
+ .p_none   {display:none;}
+
+@media all and  (min-width: 576px) {
+    .app_down.chuseock .main img.w100{width:1000px;margin:0 auto;}
+    .app_down.chuseock .main {width:1000px; margin:0 auto; text-align:center;}
+    .app_down.chuseock .wrap_con {width:1000px; margin:0 auto;  padding: 40px 0 40px 0;}
+    .app_down #footer.dark {width:100%; margin:0 auto; }
+    .app_down.chuseock {background:#FFD3B0;}
+    #navbar  {display:none !important;}
+    .app_down.joorin .main img.w100{width:1000px;margin:0 auto;}
+    .app_down.joorin .main {width:1000px; margin:0 auto; text-align:center;}
+    .app_down.joorin .wrap_con {width:1000px; margin:0 auto;  padding: 40px 0 40px 0;}
+    .app_down.joorin {background:#fff;}
+    .app_down #copyrights { width:1000px; }
+    .con_logo {display:block}
+    .p_none  {display:block}
+}
+
