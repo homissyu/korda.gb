@@ -5,11 +5,11 @@ const async = require('async');
 const logger = require('../utils/logger');
 const reviewOption = { 
     url:'https://pennygold.kr/v2/shared/gogold/reviews'
-}
+};
 
 const locationOption = {
-  url:'http://52.79.107.1/v2/shared/gogold/location'
-}
+  url:'https://pennygold.kr/v2/shared/gogold/location'
+};
 
 var imageUrl = "https://pennygold.kr/v2/shared/image/view/public/";
 
@@ -54,7 +54,7 @@ async function getLocationInfo(){
             }
         )
     ).reject(new Error('fail')).catch(() => {if(!response.socket.destroyed) response.socket.destroy();});
-});
+  });
 }
 
 let reviews;

@@ -246,7 +246,7 @@ li {list-style: none;}
 
 
 /* 금시세보기 */
-.right_wrap {position:fixed;top:100px;right:0;width:320px;height:auto;padding-top:60px;z-index: 10;}
+.right_wrap {position:fixed;top:100px;right:0;width:320px;height:auto;padding-top:60px;z-index: 99;overflow:auto}
 .rightmenu {position:relative;margin-bottom: 14px;background:rgba(58,43,49,0.95) ;padding:5px 0 10px 0;border-radius:5px;-webkit-box-sizing: border-box;box-sizing: border-box;}/*#454d61*/
 .rightmenu ul.gold_view {margin-bottom:15px;}
 .rightmenu ul.gold_view li span {font-size:18px;font-family: 'Roboto', sans-serif; font-style: normal;  font-weight: 700;letter-spacing: -0.025em;}

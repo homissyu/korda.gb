@@ -2,18 +2,24 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>여러개 마커 표시하기</title>
-    
+    <title>맛보기.평양냉면@서울.50곳</title>
+    <style>
+        .customoverlay {position:relative;bottom:50px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+        .customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+        .customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #507bd9;background: #507bd9 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+        .customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+        .customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    </style>
 </head>
 <body>
-<div id="map" style="width:100%;height:800px;"></div>
+<div id="map" style="width:100%;height:1600px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0511f7a92123fcb73cfb2ebeaafb50d3"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
-        center: new kakao.maps.LatLng(37.5740381,126.9745863), // 지도의 중심좌표
-        level: 5 // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(37.5345855,126.9868953), // 지도의 중심좌표, 녹사평역
+        level: 7 // 지도의 확대 레벨
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -22,39 +28,301 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 var positions = [
     {
         title: '남포면옥', 
+        id: '21232315',
         latlng: new kakao.maps.LatLng(37.5670813,126.9817497)
     },
     {
-        title: '우래옥', 
+        title: '우래옥 본점', 
+        id: '8025375',
         latlng: new kakao.maps.LatLng(37.5681819,126.9986773)
     },
     {
         title: '을지면옥', 
+        id: '8043030',
         latlng: new kakao.maps.LatLng(37.56757,126.9927195)
     },
     {
         title: '능라도강남점',
+        id: '27261403',
         latlng: new kakao.maps.LatLng(37.5097584,127.0555292)
+    },
+    {
+        title: '봉밀가',
+        id: '26794399',
+        latlng: new kakao.maps.LatLng(37.5159822,127.0424028)
+    },
+    {
+        title: '유진식당',
+        id: '8041476',
+        latlng: new kakao.maps.LatLng(37.5720329,126.9882793)
+    },
+    {
+        title: '정인면옥 본점', 
+        id: '23699720',
+        latlng: new kakao.maps.LatLng(37.5306331,126.9217518)
+    },
+    {
+        title: '진미 평양냉면 본점', 
+        id: '27584230',
+        latlng: new kakao.maps.LatLng(37.5161873,127.0360006)
+    },
+    {
+        title: '평양면옥',
+        id: '13093208',
+        latlng: new kakao.maps.LatLng(37.563379000927895,127.006673999682)
+    },
+    {
+        title: '필동면옥',
+        id: '11231325',
+        latlng: new kakao.maps.LatLng(37.5603727,126.9969235)
+    },
+    {
+        title: '우밀면옥',
+        id: '6201670',
+        latlng: new kakao.maps.LatLng(37.50382592666131,127.04380232635901)
+    },
+    {
+        title: '을밀대', 
+        id: '25048467',
+        latlng: new kakao.maps.LatLng(37.5474905,126.9455005)
+    },
+    {
+        title: '을지면옥', 
+        id: '8043030',
+        latlng: new kakao.maps.LatLng(37.56757,126.9927195)
+    },
+    {
+        title: '설눈',
+        id: '1495657850',
+        latlng: new kakao.maps.LatLng(37.4912722978087,127.009726304509)
+    },
+    {
+        title: '동무밥상',
+        id: '27327500',
+        latlng: new kakao.maps.LatLng(37.548327,126.9126007)
+    },
+    {
+        title: '서관면옥',
+        id: '34321780',
+        latlng: new kakao.maps.LatLng(37.4940068,127.0172896)
+    },
+    {
+        title: '평양옥',
+        id: '1187457527',
+        latlng: new kakao.maps.LatLng(37.49482623022131,127.038053931232)
+    },
+    {
+        title: '피양옥',
+        id: '2111300834',
+        latlng: new kakao.maps.LatLng(37.5194348621527,127.04833874704701)
+    },
+    {
+        title: '배꼽집',
+        id: '24528855',
+        latlng: new kakao.maps.LatLng(37.5101612,127.024082)
+    },
+    {
+        title: '경평면옥',
+        id: '1252572990',
+        latlng: new kakao.maps.LatLng(37.5108633,127.0557616)
+    },
+    {
+        title: '판동면옥',
+        id: '60793014',
+        latlng: new kakao.maps.LatLng(37.5027918494836,127.056430539498)
+    },
+    {
+        title: '성천막국수',
+        id: '9141738',
+        latlng: new kakao.maps.LatLng(37.56990730000249,127.057811199997)
+    },
+    {
+        title: '서경도락',
+        id: '30151726',
+        latlng: new kakao.maps.LatLng(37.519753191621405,127.029287297554)
+    },
+    {
+        title: '서북면옥',
+        id: '7939102',
+        latlng: new kakao.maps.LatLng(37.54541698763829,127.08532906845001)
+    },
+    {
+        title: '당인동 국수공장',
+        id: '128475361',
+        latlng: new kakao.maps.LatLng(37.5457703,126.9202282)
+    },
+    {
+        title: '압구정면옥',
+        id: '1224432398',
+        latlng: new kakao.maps.LatLng(37.5264419,127.0290645)
+    },
+    {
+        title: '봉산평양냉면',
+        id: '225009338',
+        latlng: new kakao.maps.LatLng(37.5128418919981,127.02166638491802)
+    },
+    {
+        title: '아바디',
+        id: '179143570',
+        latlng: new kakao.maps.LatLng(37.49510524808589,126.95419006999799)
+    },
+    {
+        title: '평안도 상원냉면',
+        id: '628981699',
+        latlng: new kakao.maps.LatLng(37.5561103,126.9234586)
+    },
+    {
+        title: '평미가',
+        id: '12711142',
+        latlng: new kakao.maps.LatLng(37.51893460052491,126.87152799997497)
+    },
+    {
+        title: '제기동 평양냉면',
+        id: '13323543',
+        latlng: new kakao.maps.LatLng(37.5816664,127.0449338)
+    },
+    {
+        title: '강서면옥 압구정점',
+        id: '8177726',
+        latlng: new kakao.maps.LatLng(37.5255925,127.03516309999999)
+    },
+    {
+        title: '부원면옥',
+        id: '7914330',
+        latlng: new kakao.maps.LatLng(37.5584294,126.977599)
+    },
+    {
+        title: '금왕평양면옥',
+        id: '25117707',
+        latlng: new kakao.maps.LatLng(37.510697049924104,127.12429688915002)
+    },
+    {
+        title: '만포면옥 본점',
+        id: '16852004',
+        latlng: new kakao.maps.LatLng(37.6141869999995,126.917488500006)
+    },
+    {
+        title: '제형면옥',
+        id: '84131333',
+        latlng: new kakao.maps.LatLng(37.6353795000008,127.07008429999898)
+    },
+    {
+        title: '장수원',
+        id: '10736585',
+        latlng: new kakao.maps.LatLng(37.49289310000199,126.986309900004)
+    },
+    {
+        title: '평양냉면 대동관',
+        id: '26779187',
+        latlng: new kakao.maps.LatLng(37.5531251,126.8493428)
+    },
+    {
+        title: '봉래면옥',
+        id: '1409654920',
+        latlng: new kakao.maps.LatLng(37.5365271,127.1467035)
+    },
+    {
+        title: '청명가',
+        id: '1622032277',
+        latlng: new kakao.maps.LatLng(37.56599320022751,126.90304690008202)
+    },
+    {
+        title: '메밀꽃밭 언덕넘어',
+        id: '27277624',
+        latlng: new kakao.maps.LatLng(37.4775456,126.9527098)
+    },
+    {
+        title: '평양일미 청담점',
+        id: '923910487',
+        latlng: new kakao.maps.LatLng(37.5243679,127.0407207)
+    },
+    {
+        title: '진영면옥',
+        id: '280756271',
+        latlng: new kakao.maps.LatLng(37.4715782,126.9004447)
+    },
+    {
+        title: '부벽루',
+        id: '1836397523',
+        latlng: new kakao.maps.LatLng(37.5011602,126.8827731)
+    },
+    {
+        title: '더평양',
+        id: '2007234555',
+        latlng: new kakao.maps.LatLng(37.5642101997091,126.912295699691)
+    },
+    {
+        title: '색다른면',
+        id: '1123097609',
+        latlng: new kakao.maps.LatLng(37.5396698,127.0564381)
+    },
+    {
+        title: '모연',
+        id: '162078159',
+        latlng: new kakao.maps.LatLng(37.539501283905096,126.94380962417799)
+    },
+    {
+        title: '성일면옥',
+        id: '1304617422',
+        latlng: new kakao.maps.LatLng(37.5289308,127.1243788)
+    },
+    {
+        title: '평가옥 광화문점',
+        id: '12713358',
+        latlng: new kakao.maps.LatLng(37.572102802902194,126.97444722853903)
+    },
+    {
+        title: '미미담',
+        id: '158938526',
+        latlng: new kakao.maps.LatLng(37.5555156,127.011398)
+    },
+    {
+        title: '평래옥',
+        id: '12106466',
+        latlng: new kakao.maps.LatLng(37.5649556,126.9903945)
     }
 ];
 
 // 마커 이미지의 이미지 주소입니다
-var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+// var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+// var imageSrc = "https://www.pngjoy.com/pngl/201/3958065_restaurant-icon-linkedin-icon-hd-png-download.png";
+// var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'; // 마커이미지의 주소입니다    
     
 for (var i = 0; i < positions.length; i ++) {
     
     // 마커 이미지의 이미지 크기 입니다
-    var imageSize = new kakao.maps.Size(24, 35); 
+    // var imageSize = new kakao.maps.Size(24, 24); 
+    // var imageSize = new kakao.maps.Size(32, 35); // 마커이미지의 크기입니다
+    // var imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
     
     // 마커 이미지를 생성합니다    
-    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    // var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
     
     // 마커를 생성합니다
     var marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image : markerImage // 마커 이미지 
+        title : positions[i].title // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        // image : markerImage // 마커 이미지 
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);  
+
+    var content = '<div class="customoverlay">' +
+    '  <a href="https://place.map.kakao.com/' + positions[i].id+
+    '   ">' +
+    '   <span class="title">'+positions[i].title
+    '   </span>' +
+    '  </a>' +
+    '</div>';
+
+    // 커스텀 오버레이를 생성합니다
+    var customOverlay = new kakao.maps.CustomOverlay({
+        map: map,
+        position: positions[i].latlng,
+        content: content,
+        yAnchor: 1 
     });
 }
 </script>

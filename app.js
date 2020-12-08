@@ -24,19 +24,20 @@ const PUB_VER = "";
 
 // https redirect
 
-app.all('*', (req, res, next) => { 
-    let userAgent = req.headers['User-Agent'] || req.userAgent; 
-    let protocol = req.headers['x-forwarded-proto'] || req.protocol; 
-    // console.log(`User-Agent:${userAgent}`);
-    if (req.hostname == 'localhost' || protocol == 'https') { 
-        next(); 
-    } else { 
-        let from = `${protocol}://${req.hostname}${req.url}`; 
-        let to = `https://금방금방.kr${req.url}`; // log and redirect 
-        logger.info(`[${req.method}]: ${from} -> ${to}`); 
-        res.redirect(to); 
-    } 
-});
+// app.all('*', (req, res, next) => { 
+//     let userAgent = req.headers['User-Agent'] || req.userAgent; 
+//     let protocol = req.headers['x-forwarded-proto'] || req.protocol; 
+//     // console.log(`User-Agent:${userAgent}`);
+//     if (req.hostname == 'localhost' || protocol == 'https') { 
+//         next(); 
+//     } else { 
+//         let from = `${protocol}://${req.hostname}${req.url}`; 
+//         let to = `https://금방금방.kr${req.url}`; // log and redirect 
+//         logger.info(`[${req.method}]: ${from} -> ${to}`); 
+//         res.redirect(to); 
+//     } 
+// });
+
 
 //urlEncode
 app.use(bodyParser.urlencoded({extended : true}));
