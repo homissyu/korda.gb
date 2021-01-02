@@ -182,20 +182,102 @@
 
 		gtag('config', 'UA-169617054-3');
 	</script>
+
+	<!--start for modal-->
 	<script>
-		const thisCookieName = "_gb_pop_cookie";
-		const targetDate = '2020-09-28';
-		const popupUse = false;
+		//popup갯수
+		const popupCnt = 2;
+		//popup창에 사용할 이미지 popupCnt 수 만큼
+		const images = ["201231_pop3.jpg","notice_201231_n3.jpg"];
+		const cookiesPrep = window.location.href+".cookie";
+		const buttonIDPrep = "showModal";
+		const dataTargetPrep = "popupModal";
+		
+		function generateModal(){
+			let popupArray = new Array();
+			let bodyObj = document.getElementsByTagName("BODY")[0];
+			for(let i=0;i<popupCnt;i++){
+				let popupObj = new Object();
+				popupObj.cookieName = cookiesPrep + i;
+				popupObj.buttonIDs = buttonIDPrep + i;
+				popupObj.dataTarget = dataTargetPrep + i;
+				popupArray.push(popupObj);
+
+				let button = document.createElement("button");
+				button.id="showModal"+i;
+				button.type="button";
+				button.setAttribute("class", "btn btn-info btn-lg");
+				button.setAttribute("data-toggle", "modal");
+				button.setAttribute("data-target", "#"+dataTargetPrep+i);
+				button.style="display:none;";
+				button.innerText="Open Modal"+i;
+				bodyObj.append(button);
+
+				let modalDiv = document.createElement("DIV");
+				modalDiv.id = dataTargetPrep+i;
+				modalDiv.setAttribute("class", "modal fade show");
+				modalDiv.setAttribute("role", "dialog");
+				let modalDialogDiv = document.createElement("DIV");
+				modalDialogDiv.setAttribute("class", "modal-dialog");
+				let modalContentDiv = document.createElement("DIV");
+				modalContentDiv.setAttribute("class", "modal-content");
+				let modalBodyDiv = document.createElement("DIV");
+				modalBodyDiv.setAttribute("class", "modal-body");
+				let modalImage = document.createElement("IMG");
+				modalImage.setAttribute("src", "images/"+images[i]);
+
+				let modalFooterDiv = document.createElement("DIV");
+				modalFooterDiv.setAttribute("align","right");
+				let modalCheck = document.createElement("INPUT");
+				modalCheck.setAttribute("type","checkbox");
+				modalCheck.id = "notice"+i;
+				modalCheck.setAttribute("name","Notice");
+				modalCheck.style = "vertical-align: middle";
+				modalCheck.addEventListener("click", function() {
+					if(modalCheck.id == "notice"+i){
+						setCookie(popupObj.cookieName,popupObj.cookieName,1);
+					}else{
+						setCookie(popupObj.cookieName,popupObj.cookieName,-1);
+					}
+				});
+				modalFooterDiv.append(modalCheck);
+				let modalFont = document.createElement("Font");
+				modalFont.style = "font-size:8pt";
+				modalFont.innerText = "오늘 하루 동안 열지 않음";
+				let modalButton = document.createElement("button");
+				modalButton.innerText = "Close";
+				modalButton.setAttribute("class","btn btn-default");
+				modalButton.setAttribute("data-dismiss","modal");
+				
+				modalFooterDiv.append(modalFont);
+				modalFooterDiv.append(modalButton);
+				modalBodyDiv.append(modalImage);
+				modalBodyDiv.append(modalFooterDiv);
+				modalContentDiv.append(modalBodyDiv);
+				modalDialogDiv.append(modalContentDiv);
+				modalDiv.append(modalDialogDiv);
+
+				bodyObj.append(modalDiv);
+			}
+
+			return popupArray;
+		}
+		
+		const targetDate = '2020-09-28'; //오늘보다 과거면 오늘 하루만, 미래면 그날까지 띄워라
+		
 		function showModal(){
-			var obj = document.getElementById("showModal");
-			if(popupUse&&!getCookie(thisCookieName)){
-				obj.click();
+			let popupJson = JSON.parse(JSON.stringify(generateModal()));
+			for(let i=0;i<popupJson.length;i++){
+				let tempObj = document.getElementById(popupJson[i].buttonIDs);
+				if(!getCookie(popupJson[i].cookieName)){
+					tempObj.click();
+				}
 			}
 		};
 		
-		function getCookie( cookieName ){
-			var search = cookieName + "=";
-			var cookie = document.cookie;
+ 		function getCookie( cookieName ){
+  			var search = cookieName + "=";
+  			var cookie = document.cookie;
 			/* 현재 쿠키가 존재할 경우 */
 			if( cookie.length > 0 ){
 				/* 해당 쿠키명이 존재하는지 검색한 후 존재하면 위치를 리턴. */
@@ -213,32 +295,26 @@
 
 					/* 쿠키값을 추출하여 리턴 */
 					return true;
-				}else{
+  				}else{
 					/* 쿠키 내에 해당 쿠키가 존재하지 않을 경우 */
 					return false;
 				}
-			}else{
+  			}else{
 				/* 쿠키 자체가 없을 경우 */
 				return false;
-			}
-		}
+  			}
+ 		}
 
 		function setCookie( name, value, expiredays ){
 			var todayDate;
 			if(new Date(targetDate) > new Date()) todayDate = new Date(targetDate);
 			else todayDate = new Date();
+			
 			todayDate.setDate( todayDate.getDate() + expiredays );
 			document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
 		}
-
-		function closePopup(){
-			if(document.getElementById("notice").checked){
-				setCookie(thisCookieName,thisCookieName,1);
-			}else{
-				setCookie(thisCookieName,thisCookieName,-1);
-			}
-		}
-	</script>
+ 	</script>
+	<!--end for modal-->
 	<script>
 		function getFormatDate(date){
 				var year = date.getFullYear();              //yyyy
@@ -258,36 +334,11 @@
 			return getFormatDate(new Date());
 		}
 	</script>
+	
 </head>
 
 <body class="stretched" onLoad=sendAjax();showModal();>
-	<!-- Trigger the modal with a button -->
-	<button id="showModal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="display: none;">Open Modal</button>
-	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<!--div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div-->
-			<div class="modal-body">
-				<img src="images/200929_pop_gb.png"/>
-			<!--p align=center><img src="images/200929_pop_gb.png"/-->
-				<div align=right>
-					<input type="checkbox" id="notice" name="Notice" onClick="closePopup();" style="vertical-align: middle"> <font style="font-size:8pt">오늘 하루 동안 열지 않음</font>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			<!--p-->
-			</div>
-			<!--div class="modal-footer">
-				<input type="checkbox" id="notice" name="Notice" onClick="closePopup()"> <font style="font-size:8pt">오늘 하루 동안 열지 않음</font>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div-->
-		</div>
-	</div>
-	</div>
-
+	
 	<!-- Document Wrapper
 	============================================= -->
 	<div id="wrapper" class="clearfix gold">
@@ -347,11 +398,11 @@
 		 <!--하단 앱다운로드 버튼-->
 		 <div class="m_view">
 			<div id="navbar">
-				<a href="market://details?id=com.gogold.korda"><img src="images/img_store_1_w2_mobile.png" alt="금방금방 플레이 스토어"></a>
-				<a href="itms-apps://itunes.apple.com/kr/app/apple-store/id1521643653"><img src="images/img_store_2_w2_mobile.png" alt="금방금방 앱스토어"></a>
+				<a href="javascript:gtag_report_conversion('market://details?id=com.gogold.korda');"><img src="images/img_store_1_w2_mobile.png" alt="금방금방 플레이 스토어"></a>
+				<a href="javascript:gtag_report_conversion('itms-apps://itunes.apple.com/kr/app/apple-store/id1521643653');"><img src="images/img_store_2_w2_mobile.png" alt="금방금방 앱스토어"></a>
 			</div>
 		</div>
-	   <!--//gnb only for Mobile-->
+		
 		
 	   <!-- 금시세보기 -->
 		<div class="right_wrap fs-popup" data-readmore="true" data-readmore-mask="false" data-readmore-size="0rem" data-readmore-trigger-open="<i class='icon-angle-down'></i>" data-readmore-trigger-close="<i class='icon-angle-up'></i>">
@@ -491,7 +542,7 @@
 					</div>
 				</div>
 				<%
-					let multiple = 8; //마케팅용 배수
+					let multiple = 7.5; //마케팅용 배수
 					let sl = Number.parseInt(locations[0].data.서울);
 					sl += Number.parseInt(locations[0].data.방문);
 					sl += Number.parseInt(locations[0].data.기타);
@@ -706,8 +757,8 @@
 						<h3 class="h1 mb-3 tit">국내최초 ! 비대면 모바일 감정서비스, 금방금방</h3>
 						<p class="stit">지금 다운로드 받으세요 ♥</p>
 						<p class="d-sm-block fadeInUp animated" data-animate="fadeInUp" data-delay="200">
-							<a href="market://details?id=com.gogold.korda" class="button button-xlarge button-border button-rounded"><img class="m_bt" src="images/app_img01.png" alt="mobile"></a>
-							<a href="itms-apps://itunes.apple.com/kr/app/apple-store/id1521643653" class="button button-xlarge button-border button-rounded"><img class="m_bt" src="images/app_img02.png" alt="mobile"></a>
+							<a href="javascript:gtag_report_conversion('https://play.google.com/store/apps/details?id=com.cengold.korda');" class="button button-xlarge button-border button-rounded"><img class="m_bt" src="images/app_img01.png" alt="mobile"></a>
+							<a href="javascript:gtag_report_conversion('itms-apps://itunes.apple.com/kr/app/apple-store/id1521643653');" class="button button-xlarge button-border button-rounded"><img class="m_bt" src="images/app_img02.png" alt="mobile"></a>
 						</p>
 					</div>
 				</div>				
@@ -858,7 +909,7 @@
 	============================================= -->
 	<script src="js/jquery.js"></script>
 
-
+	
 
 	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
 	<script src="include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
@@ -981,6 +1032,23 @@
 	
 </script>
 
+<!-- Event snippet for 이벤트 스니펫 - 금방금방_클릭_GooglePlay conversion page
+	In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+	<script>
+		function gtag_report_conversion(url) {
+		  var callback = function () {
+			if (typeof(url) != 'undefined') {
+			  window.location = url;
+			}
+		  };
+		  gtag('event', 'conversion', {
+			  'send_to': 'AW-627168060/sKeVCP_m8e0BELymh6sC',
+			  'event_callback': callback
+		  });
+		  return false;
+		}
+	</script>
+	<!--//gnb only for Mobile-->
 
 	<!-- Footer Scripts
 	============================================= -->
