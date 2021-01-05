@@ -194,6 +194,10 @@
 		const dataTargetPrep = "popupModal";
 		
 		function generateModal(){
+			if(images.length < popupCnt){
+				console.log("Popup Image 수가 부족합니다.\nPopup을 띄울 수 없습니다.");
+				return;
+			}
 			let popupArray = new Array();
 			let bodyObj = document.getElementsByTagName("BODY")[0];
 			for(let i=0;i<popupCnt;i++){
