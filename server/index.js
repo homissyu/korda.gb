@@ -4,14 +4,15 @@ const request = require('request');
 const async = require('async');
 const logger = require('../utils/logger');
 const reviewOption = { 
-    url:'https://pennygold.kr/v2/shared/gogold/reviews'
+    url:'http://pennygold.kr/v3/gogold/consignment/list'
+    // url:'https://pennygold.kr/v3/gogold/reviews'
 };
 
 const locationOption = {
-  url:'https://pennygold.kr/v2/shared/gogold/location'
+  url:'https://pennygold.kr/v3/gogold/shared/location'
 };
 
-var imageUrl = "https://pennygold.kr/v2/shared/image/view/public/";
+var imageUrl = "https://pennygold.kr/v3/common/files/view/";
 
 const getConnection = require('../config/db');
 let ytRet = {};
@@ -66,16 +67,23 @@ async function getReviewList() {
               function(error, response, body) { 
                   try {
                       reviews = new Array();
-                      var result = JSON.parse(body);
-                      for(var i=0;i<result.data.length;i++){
+                      let result = JSON.parse(body);
+                      for(let i=0;i<result.data.length;i++){
                         reviews.push(
+                          // {
+                          //   "categoryName":result.data[i].orderDto.orderItemList[0].categoryName,
+                          //   "karatGrade":result.data[i].orderDto.orderItemList[0].decidedKaratGrade,
+                          //   "totalWeight":result.data[i].reviewOtherDto.totalWeight,
+                          //   "totalGoGoldKrw":new Intl.NumberFormat('ko-KR', { style: 'decimal', maximumFractionDigits: 2}).format(result.data[i].reviewOtherDto.totalGoGoldKrw),
+                          //   "imageUrl":imageUrl+JSON.stringify(result.data[i].orderDto.orderItemList[0].image1),
+                          //   "updatedAt":(result.data[i].orderDto.reviewList[0].updatedAt).split("T")[0]
+                          // }
                           {
-                            "categoryName":result.data[i].orderDto.orderItemList[0].categoryName,
-                            "karatGrade":result.data[i].orderDto.orderItemList[0].decidedKaratGrade,
-                            "totalWeight":result.data[i].reviewOtherDto.totalWeight,
-                            "totalGoGoldKrw":new Intl.NumberFormat('ko-KR', { style: 'decimal', maximumFractionDigits: 2}).format(result.data[i].reviewOtherDto.totalGoGoldKrw),
-                            "imageUrl":imageUrl+JSON.stringify(result.data[i].orderDto.orderItemList[0].image1),
-                            "updatedAt":(result.data[i].orderDto.reviewList[0].updatedAt).split("T")[0]
+                            "title":result.data[i].title,
+                            "statusString":result.data[i].statusString,
+                            "price":result.data[i].price,
+                            "imageUrl":imageUrl+JSON.stringify(result.data[i].image),
+                            "updatedAt":result.data[i].updatedAt
                           }
                         );
                       }

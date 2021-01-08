@@ -693,8 +693,12 @@
 															<img src="<%=reviewsRet[i].imageUrl%>" alt="images" >
 														</div>
 													</div>
-													<div class="cont">
+													<!--div class="cont">
 														<p class="tit"><%=reviewsRet[i].karatGrade%>K <%=reviewsRet[i].categoryName%> <br>총 <%=reviewsRet[i].totalWeight%>g  <span class="par">|</span> <%=reviewsRet[i].totalGoGoldKrw%>원</p>
+                                                        <p class="date"><%=reviewsRet[i].updatedAt%>  </p>
+													</div-->
+													<div class="cont">
+														<p class="tit"><%=reviewsRet[i].title%> <br> <%=reviewsRet[i].price%>원 <span class="par">|</span> <%=reviewsRet[i].statusString%></p>
                                                         <p class="date"><%=reviewsRet[i].updatedAt%>  </p>
                                                     </div>
                                                 </div>
